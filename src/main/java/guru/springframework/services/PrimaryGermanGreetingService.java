@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Profile("de")
 public class PrimaryGermanGreetingService implements GreetingService {
 	
-    public PrimaryGermanGreetingService(@Qualifier("greetingRepositoryImpl") GreetingRepository greetingRepository) {
+    public PrimaryGermanGreetingService(GreetingRepository greetingRepository) {
 		this.greetingRepository = greetingRepository;
 	}
 
