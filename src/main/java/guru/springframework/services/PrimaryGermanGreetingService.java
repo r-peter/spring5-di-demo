@@ -1,5 +1,6 @@
 package guru.springframework.services;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,12 @@ import org.springframework.stereotype.Service;
 @Primary
 @Profile("de")
 public class PrimaryGermanGreetingService implements GreetingService {
+	
+    public PrimaryGermanGreetingService(@Qualifier("greetingRepositoryImpl") GreetingRepository greetingRepository) {
+		this.greetingRepository = greetingRepository;
+	}
 
-    private GreetingRepository greetingRepository;
+	private GreetingRepository greetingRepository;
 
     @Override
     public String sayGreeting() {
